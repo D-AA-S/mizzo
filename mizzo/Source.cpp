@@ -36,4 +36,15 @@ int main(int argc, char** argv)
             exit(EXIT_FAILURE);
         }
     }
+    
+    sem_t mutex;  //Two producers and two consumers (CFB and EES, and Ethel and Lucy)
+    sem_t crunchyFrogBites; //semaphore to make sure that if there 3 CFB on the belt, the CFB thread should wait until it can keep producing
+    sem_t unconsumed; // start at 0; shows the number of items in the buffer; if full, then the producer threads should be put to sleep
+    sem_t availableSlots; // starts at BELTSIZE; how many available slots there are in the buffer (starts with the available slots on the conveyor belt); if empty, the consumer threads should be put to sleep
+
+    if (sem_init(&mutex, 0, 1) == -1) {
+
+    }
+
+
 }
