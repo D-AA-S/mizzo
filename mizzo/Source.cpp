@@ -9,6 +9,8 @@
 #include <string>
 #include <semaphore.h>
 #include <unistd.h>
+#include "Consumers.h"
+#include "Producers.h"
 using namespace std;
 
 int main(int argc, char** argv)
@@ -45,6 +47,7 @@ int main(int argc, char** argv)
     if (sem_init(&mutex, 0, 1) == -1) {
 
     }
-
+    
+    pthread_t ethel, lucy, cfb, ees, belt;
 
 }
