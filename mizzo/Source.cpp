@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string>
 #include <semaphore.h>
+#include <unistd.h>
 
 int main(int argc, char** argv)
 {
