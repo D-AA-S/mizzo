@@ -9,6 +9,8 @@
 #include <string>
 #include <semaphore.h>
 #include <unistd.h>
+#include "Consumers.h"
+#include "Producers.h"
 using namespace std;
 
 int main(int argc, char** argv)
@@ -36,4 +38,7 @@ int main(int argc, char** argv)
             exit(EXIT_FAILURE);
         }
     }
+    
+    pthread_t ethel, lucy, cfb, ees, belt;
+
 }
