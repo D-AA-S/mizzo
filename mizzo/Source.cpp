@@ -2,6 +2,8 @@
     Daniel A. Silva Red ID: 820567716
     Kathryn Shafer  Red ID: 821586552
 */
+extern const int BELTSIZE = 10;
+extern const int CFB = 3;
 
 #include <iostream>
 #include <pthread.h>
@@ -9,8 +11,10 @@
 #include <string>
 #include <semaphore.h>
 #include <unistd.h>
+#include "Belt.h"
 #include "Consumers.h"
 #include "Producers.h"
+
 using namespace std;
 
 int main(int argc, char** argv)
@@ -45,9 +49,25 @@ int main(int argc, char** argv)
     sem_t availableSlots; // starts at BELTSIZE; how many available slots there are in the buffer (starts with the available slots on the conveyor belt); if empty, the consumer threads should be put to sleep
 
     if (sem_init(&mutex, 0, 1) == -1) {
-
+        //unable to intialize semaphore, report failure
     }
-    
-    pthread_t ethel, lucy, cfb, ees, belt;
 
+    if (sem_init(&crunchyFrogBites, 0, CFB) == -1) {
+        //unable to intialize semaphore, report failure
+    }
+
+    if (sem_init(&unconsumed, 0, 0) == -1) {
+        //unable to intialize semaphore, report failure
+    }
+
+    if (sem_init(&availableSlots, 0, BELTSIZE) == -1) {
+        //unable to intialize semaphore, report failure
+    }
+
+
+    pthread_t ethel, lucy, cfb, ees;
+
+    //create the crunchy frog bite generator, then the everlasting escargot sucker, then the lucy thread, then the ethel thread
+
+    pthread_create(&cfb, NULL)
 }
